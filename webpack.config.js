@@ -38,17 +38,17 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-            {loader:"style-loader"},
-            { loader: 'css-loader' },
-            {
-                loader: 'postcss-loader',
-                options: {
-                    postcssOptions: {
-                    plugins: [['postcss-preset-env']]
-                    }
-                }
-            },
-            { loader: 'sass-loader' }
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [['postcss-preset-env']]
+              }
+            }
+          },
+          { loader: 'sass-loader' }
         ]
       },
       {
@@ -80,6 +80,10 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
     ]
   },
   plugins: [
