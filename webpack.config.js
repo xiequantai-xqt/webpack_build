@@ -40,8 +40,17 @@ module.exports = {
         use: [
             {loader:"style-loader"},
             { loader: 'css-loader' },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                    plugins: [['postcss-preset-env']]
+                    }
+                }
+            },
+            { loader: 'sass-loader' }
         ]
-      }
+      },
     ]
   },
   plugins: [
