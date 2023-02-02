@@ -38,51 +38,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          { loader: 'style-loader' },
           { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [['postcss-preset-env']]
-              }
-            }
-          },
-          { loader: 'sass-loader' }
         ]
-      },
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024 // 小于10kb的图片会被base64处理
-          }
-        },
-        // 配置资源输出位置和名称
-        generator: {
-          // 将图片文件输出到 imgs 目录中
-          // 将图片文件命名 [name][hash:6][ext][query]
-          // [name]: 之前的文件名称
-          // [hash:6]: hash值取6位
-          // [ext]: 使用之前的文件扩展名
-          // [query]: 添加之前的query参数
-          filename: 'imgs/[name][hash:6][ext][query]'
-        }
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
       }
     ]
   },
