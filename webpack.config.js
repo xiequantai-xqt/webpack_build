@@ -70,6 +70,16 @@ module.exports = {
           filename: 'imgs/[name][hash:6][ext][query]'
         }
       },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
     ]
   },
   plugins: [
